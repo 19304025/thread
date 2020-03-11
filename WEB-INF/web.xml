@@ -1,0 +1,71 @@
+<web-app>
+<servlet>
+		<servlet-name>ThreadServlet</servlet-name>
+		<servlet-class>ThreadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ThreadServlet</servlet-name>
+		<url-pattern>/ThreadServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ResponseServlet</servlet-name>
+		<servlet-class>ResponseServlet</servlet-class>
+	</servlet>
+		<servlet-mapping>
+		<servlet-name>ResponseServlet</servlet-name>
+		<url-pattern>/ResponseServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Thread</servlet-name>
+		<jsp-file>/Thread.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Thread</servlet-name>
+		<url-pattern>/Thread</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Response</servlet-name>
+		<jsp-file>/Response.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Response</servlet-name>
+		<url-pattern>/Response</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SearchThread</servlet-name>
+		<jsp-file>/SearchThread.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchThread</servlet-name>
+		<url-pattern>/SearchThread</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ShowThreadServlet</servlet-name>
+		<servlet-class>ShowThreadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowThreadServlet</servlet-name>
+		<url-pattern>/ShowThreadServlet</url-pattern>
+	</servlet-mapping>
+<servlet>
+		<servlet-name>ShowResponseServlet</servlet-name>
+		<servlet-class>ShowResponseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowResponseServlet</servlet-name>
+		<url-pattern>/ShowResponseServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+			<servlet-name>SearchServlet</servlet-name>
+			<servlet-class>SearchServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>SearchServlet</servlet-name>
+			<url-pattern>/SearchServlet</url-pattern>
+		</servlet-mapping>
+
+</web-app>
