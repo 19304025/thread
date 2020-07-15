@@ -1,15 +1,15 @@
 import java.sql.Connection;
-
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
-import bean.ThreadBean;
+
 import bean.ResponseBean;
+import bean.ThreadBean;
 
 public class DatabaseAccesser{
-	// –ß‚è’l•ÏX‚©‚à
+	// ï¿½ß‚ï¿½lï¿½ÏXï¿½ï¿½ï¿½ï¿½
 	public void InsertThread(String title,String name){
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -18,7 +18,7 @@ public class DatabaseAccesser{
 				DriverManager.getConnection(
                     "jdbc:oracle:thin:@localhost:1521:orcl","Matumura ","kouhei");
 			Statement st=cn.createStatement();
-			// insert‚Åƒ^ƒCƒgƒ‹‚Æ–¼‘O‚ğ“ü—Í
+			// insertï¿½Åƒ^ï¿½Cï¿½gï¿½ï¿½ï¿½Æ–ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½
             String sql="insert into Thread(ThreadID,title,name,PostDate)values(Thread_sequence.nextval,?,?,default)";
 			PreparedStatement pstmt = cn.prepareStatement(sql);
 
@@ -26,6 +26,7 @@ public class DatabaseAccesser{
 			pstmt.setString(2,name);
 
 			ResultSet rs = pstmt.executeQuery();
+			//ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
 
 
 		}catch(Exception e){
@@ -43,9 +44,9 @@ public class DatabaseAccesser{
 				DriverManager.getConnection(
                     "jdbc:oracle:thin:@localhost:1521:orcl","Matumura ","kouhei");
 			Statement st=cn.createStatement();
-			String sql = "select ThreadID,title,name,to_char(PostDate,'YYYY\"”N\"MM\"Œ\"DD\"“ú\" HH24:MI:SS') from Thread order by ThreadID";
+			String sql = "select ThreadID,title,name,to_char(PostDate,'YYYY\"ï¿½N\"MM\"ï¿½ï¿½\"DD\"ï¿½ï¿½\" HH24:MI:SS') from Thread order by ThreadID";
 			ResultSet rs = st.executeQuery(sql);
-			// ThreadList‚ÉThreadBean‚Ì’l‚ğ“ü—Í
+			// ThreadListï¿½ï¿½ThreadBeanï¿½Ì’lï¿½ï¿½ï¿½ï¿½ï¿½
 			while(rs.next()){
 				ThreadBean tb=new ThreadBean();
 				int ThreadID = Integer.parseInt(rs.getString(1));
@@ -65,13 +66,13 @@ public class DatabaseAccesser{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		//ƒeƒXƒg—p
+		//ï¿½eï¿½Xï¿½gï¿½p
 		for(int i = ThreadList.size()-1;i>=0;i--){
 			System.out.println(ThreadList.get(i));
 		}
 		return ThreadList;
 	}
-		// ÅV‚ÌThreadID‚ğ•Ô‚·
+		// ï¿½ÅVï¿½ï¿½ThreadIDï¿½ï¿½Ô‚ï¿½
 	public int lastThreadID(){
 		int ThreadID=0;
 
@@ -100,7 +101,7 @@ public class DatabaseAccesser{
 		return ThreadID;
 
 	}
-	// response•\‚Ö‚Ìinsert‚ğs‚¤
+	// responseï¿½\ï¿½Ö‚ï¿½insertï¿½ï¿½ï¿½sï¿½ï¿½
 	public void InsertResponse(int ThreadID,String name,String comments){
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -125,7 +126,7 @@ public class DatabaseAccesser{
 			e.printStackTrace();
 		}
 	}
-	//ID‚ª“¯‚¶ƒXƒŒƒbƒh‚É“ü‚ê‚é
+	//IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½É“ï¿½ï¿½ï¿½ï¿½
 	public ArrayList getResponse(int ThreadID){
 
 		ArrayList ResponseList=new ArrayList();
@@ -136,7 +137,7 @@ public class DatabaseAccesser{
 				DriverManager.getConnection(
                     "jdbc:oracle:thin:@localhost:1521:orcl","Matumura ","kouhei");
 
-			String sql = "select ThreadID,ResponseID,name,comments,to_char(ResponseDate,'YYYY\"”N\"MM\"Œ\"DD\"“ú\" HH24:MI:SS') from Response where ThreadID = '"+ThreadID+"' order by ResponseID";
+			String sql = "select ThreadID,ResponseID,name,comments,to_char(ResponseDate,'YYYY\"ï¿½N\"MM\"ï¿½ï¿½\"DD\"ï¿½ï¿½\" HH24:MI:SS') from Response where ThreadID = '"+ThreadID+"' order by ResponseID";
 			Statement st=cn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			while(rs.next()){
@@ -159,7 +160,7 @@ public class DatabaseAccesser{
 		}
 		return ResponseList;
 	}
-	//insert‚Åƒ^ƒCƒgƒ‹‚ğ“ü—Í
+	//insertï¿½Åƒ^ï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public ArrayList SearchThread(String title){
 		ArrayList SearchList = new ArrayList();
 
@@ -171,7 +172,7 @@ public class DatabaseAccesser{
 				DriverManager.getConnection(
                     "jdbc:oracle:thin:@localhost:1521:orcl","Matumura ","kouhei");
 			Statement st=cn.createStatement();
-			String sql = "select ThreadID,title,name,to_char(PostDate,'YYYY\"”N\"MM\"Œ\"DD\"“ú\" HH24:MI:SS') from Thread where title like '%"+title+"%' order by threadid";
+			String sql = "select ThreadID,title,name,to_char(PostDate,'YYYY\"ï¿½N\"MM\"ï¿½ï¿½\"DD\"ï¿½ï¿½\" HH24:MI:SS') from Thread where title like '%"+title+"%' order by threadid";
 			ResultSet rs = st.executeQuery(sql);
 			System.out.println(sql);
 			while(rs.next()){
